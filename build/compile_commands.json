@@ -1,0 +1,8 @@
+[
+{
+  "directory": "K:/PROGRAM/RayTrace/build",
+  "command": "C:\\MinGW\\bin\\g++.exe   -g -o CMakeFiles\\RayTrace.dir\\main.cpp.obj -c K:\\PROGRAM\\RayTrace\\main.cpp",
+  "file": "K:/PROGRAM/RayTrace/main.cpp",
+  "output": "CMakeFiles/RayTrace.dir/main.cpp.obj"
+}
+]

@@ -1,0 +1,5 @@
+K:/PROGRAM/RayTrace/build/CMakeFiles/RayTrace.dir
+K:/PROGRAM/RayTrace/build/CMakeFiles/package.dir
+K:/PROGRAM/RayTrace/build/CMakeFiles/package_source.dir
+K:/PROGRAM/RayTrace/build/CMakeFiles/edit_cache.dir
+K:/PROGRAM/RayTrace/build/CMakeFiles/rebuild_cache.dir

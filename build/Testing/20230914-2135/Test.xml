@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Win32-mingw32-make"
+	BuildStamp="20230914-2135-Experimental"
+	Name="SHUJA"
+	Generator="ctest-3.26.4-msvc4"
+	CompilerName="C:/MinGW/bin/g++.exe"
+	CompilerVersion="9.2.0"
+	OSName="Windows"
+	Hostname="SHUJA"
+	OSRelease=" Personal"
+	OSVersion=" (Build 19045)"
+	OSPlatform="AMD64"
+	Is64Bits="1"
+	VendorString="AuthenticAMD"
+	VendorID="Advanced Micro Devices"
+	FamilyID="15"
+	ModelID="8"
+	ProcessorCacheSize="96"
+	NumberOfLogicalCPU="12"
+	NumberOfPhysicalCPU="6"
+	TotalVirtualMemory="37868"
+	TotalPhysicalMemory="32712"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="3600"
+	>
+	<Testing>
+		<StartDateTime>Sep 14 17:37 Eastern Daylight Time</StartDateTime>
+		<StartTestTime>1694727470</StartTestTime>
+		<TestList/>
+		<EndDateTime>Sep 14 17:37 Eastern Daylight Time</EndDateTime>
+		<EndTestTime>1694727470</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>
