@@ -59,5 +59,50 @@ class vec3 {
 
 };
 
+// 3d point class alias
 using point3 = vec3;
 
+// vector math
+inline std::ostream& operator<<(std::ostream &out, const vec3 &v) {
+    return out << v.vec[0] << ", " << v.vec[1] << ", " << v.vec[2];
+}
+
+inline vec3 operator+(const vec3& v1, const vec3& v2) {
+    return vec3(v1.vec[0] + v2.vec[0], v1.vec[1] + v2.vec[1], v1.vec[2] + v2.vec[2]);
+}
+
+inline vec3 operator-(const vec3& v1, const vec3& v2) {
+    return vec3(v1.vec[0] - v2.vec[0], v1.vec[1] - v2.vec[1], v1.vec[2] - v2.vec[2]);
+}
+
+inline vec3 operator*(const vec3& v1, const vec3& v2) {
+    return vec3(v1.vec[0] * v2.vec[0], v1.vec[1] * v2.vec[1], v1.vec[2] * v2.vec[2]);
+}
+
+inline vec3 operator*(double c, const vec3 &v) {
+    return vec3(c*v.vec[0], c*v.vec[1], c*v.vec[2]);
+}
+
+inline vec3 operator*(const vec3 &v, double c) {
+    return c * v;
+}
+
+inline vec3 operator/(const vec3 &v, double c) {
+    return (1/c) * v;
+}
+
+inline double dot(const vec3 &v1, const vec3 &v2) {
+    return v1.vec[0] * v2.vec[0]
+         + v1.vec[1] * v2.vec[1]
+         + v1.vec[2] * v2.vec[2];
+}
+
+inline vec3 cross(const vec3& v1, const vec3& v2) {
+    return vec3(v1.vec[1] * v2.vec[2] - v1.vec[2] * v2.vec[1],
+                v1.vec[2] * v2.vec[0] - v1.vec[0] * v2.vec[2],
+                v1.vec[0] * v2.vec[1] - v1.vec[1] * v2.vec[0]);
+}
+
+inline vec3 unit_vector(const vec3& v) {
+    return v/v.length();
+}
