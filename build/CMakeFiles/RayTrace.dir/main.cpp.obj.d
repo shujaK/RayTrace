@@ -103,6 +103,4 @@ CMakeFiles/RayTrace.dir/main.cpp.obj: K:\PROGRAM\RayTrace\main.cpp \
  c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\bits\basic_ios.tcc \
  c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\bits\ostream.tcc \
  c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\istream \
- c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\bits\istream.tcc \
- K:\PROGRAM\RayTrace\vec3.h \
- c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\cmath c:\mingw\include\math.h
+ c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\bits\istream.tcc

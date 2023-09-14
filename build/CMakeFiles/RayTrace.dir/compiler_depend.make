@@ -117,7 +117,10 @@ CMakeFiles/RayTrace.dir/main.cpp.obj: K:/PROGRAM/RayTrace/main.cpp \
   C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/bits/basic_ios.tcc \
   C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/bits/ostream.tcc \
   C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/istream \
-  C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/bits/istream.tcc
+  C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/bits/istream.tcc \
+  K:/PROGRAM/RayTrace/vec3.h \
+  C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/cmath \
+  C:/MinGW/include/math.h
 
 
 K:/PROGRAM/RayTrace/main.cpp:
@@ -230,6 +233,8 @@ C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/bits/hash_bytes.h:
 
 C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/bits/stl_iterator_base_funcs.h:
 
+K:/PROGRAM/RayTrace/vec3.h:
+
 C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/type_traits:
 
 C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/cstdint:
@@ -339,3 +344,7 @@ C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/bits/ostream.tcc:
 C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/istream:
 
 C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/bits/istream.tcc:
+
+C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/cmath:
+
+C:/MinGW/include/math.h:
