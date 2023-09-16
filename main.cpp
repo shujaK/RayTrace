@@ -3,19 +3,27 @@
 #include "colour.h"
 #include "ray.h"
 
-bool hit_sphere(const point3& center, double radius, const ray& r) {
+double hit_sphere(const point3& center, double radius, const ray& r) {\
+    // determine t value to hit sphere through quadratic formula
     vec3 o_c = r.origin() - center;
-    auto a = dot(r.direction(), r.direction());
-    auto b = 2.0 * dot(o_c, r.direction());
-    auto c = dot(o_c, o_c) - radius*radius;
-    auto descriminant = (b*b) - (4.0*a*c);
-    return (descriminant >= 0);
+    auto a = r.direction().length_squared(); 
+    auto half_b = dot(o_c, r.direction());
+    auto c = o_c.length_squared() - radius*radius;
+    auto discriminant = (half_b*half_b) - (a*c);
+    if (discriminant < 0) {
+        return -1.0;
+    } else {
+        return (-half_b - sqrt(discriminant)) / (2.0*a);
+    }
 }
 
 colour ray_colour(const ray& r) {
     point3 sphere_center(0, 0, -1);
-    if (hit_sphere(sphere_center, 0.5, r)) {
-        return colour(0, 0, 0);
+    auto t = hit_sphere(sphere_center, 0.5, r);
+    if (t > 0) {
+        auto intersection = r.at(t); // point on surface
+        vec3 normal = unit_vector(intersection - sphere_center); // normal = centre to point
+        return colour(normal + vec3(1, 1, 1)) * 0.5; // normalize vector
     }
 
     auto unit_dir = unit_vector(r.direction());
