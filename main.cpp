@@ -1,5 +1,6 @@
 #include <iostream>
-
+#include "vec3.h"
+#include "colour.h"
 
 int main() {
     // Dimensions
@@ -12,16 +13,11 @@ int main() {
     for (int y = 0; y < img_height; y++) {
         std::clog << "\rScanlines remaining: " << (img_height - y) << ' ' << std::flush;
         for (int x = 0; x < img_width; x++) {
-            auto r = double(x) / (img_width - 1);
-            auto g = double(y) / (img_height - 1);
-            auto b = 0;
+            colour col(double(x) / (img_width - 1), 
+                       double(y) / (img_height - 1), 
+                       0);
 
-            int ir = int(r * 255.99);
-            int ig = int(g * 255.99);
-            int ib = int(b * 255.99);
-
-            std::cout << ir << ' ' << ig << ' ' << ib << std::endl;
-            
+            write_colour(std::cout, col);
         }
     }
     std::clog << "\rDone.                 \n";
