@@ -1,1 +1,6 @@
 build/
+build/RayTrace.exe
+build/CMakeFiles/RayTrace.dir/compiler_depend.make
+build/CMakeFiles/RayTrace.dir/main.cpp.obj
+build/CMakeFiles/RayTrace.dir/objects.a
+main.exe
