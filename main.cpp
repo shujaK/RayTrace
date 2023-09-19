@@ -1,15 +1,16 @@
 #include <iostream>
-#include "src/vec3.h"
+
+#include "src/main_header.h"
 #include "src/colour.h"
-#include "src/ray.h"
 #include "src/hittable.h"
+#include "src/hittable_list.h"
 #include "src/sphere.h"
 
 
 colour ray_colour(const ray& r, const hittable& world) {
     hit_record rec;
 
-    if (world.hit(r, 0, 1000000, rec)) {
+    if (world.hit(r, 0, infinity, rec)) {
         return 0.5 * (rec.normal + colour(1,1,1));
     }
 
@@ -47,8 +48,10 @@ int main() {
     auto viewport_upper_left = camera_center - vec3(0, 0, focal_length) - 0.5*viewport_u - 0.5*viewport_v;
     auto pixel00_loc = viewport_upper_left + 0.5*delta_u + 0.5*delta_v;
 
-    // world
-    sphere ball(point3(0, 0, -1), 0.5);
+    // world objects
+    hittable_list world;
+    world.add(make_shared<sphere>(point3(0,0,-1), 0.5));
+    world.add(make_shared<sphere>(point3(0,-100.5,-1), 100));
 
     // Render
     std::cout << "P3\n" << img_width << " " << img_height << "\n255" << std::endl;
@@ -60,7 +63,7 @@ int main() {
             auto ray_direction = pixel_center - camera_center; // ray direction from "eye" to viewport
             ray r(camera_center, ray_direction);
 
-            auto col = ray_colour(r, ball);
+            auto col = ray_colour(r, world);
 
             write_colour(std::cout, col);
         }

@@ -26,7 +26,7 @@ class hittable_list : public hittable {
             auto closest = r_tmax;
 
             for (const auto& object: objects) {
-                if (object->hit(r, r_tmin, r_tmax, temp_rec)) {
+                if (object->hit(r, r_tmin, closest, temp_rec)) {
                     hit_anything = true;
                     closest = temp_rec.t;
                     rec = temp_rec;
