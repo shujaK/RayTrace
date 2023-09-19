@@ -1,31 +1,19 @@
 #include <iostream>
-#include "vec3.h"
-#include "colour.h"
-#include "ray.h"
+#include "src/vec3.h"
+#include "src/colour.h"
+#include "src/ray.h"
+#include "src/hittable.h"
+#include "src/sphere.h"
 
-double hit_sphere(const point3& center, double radius, const ray& r) {\
-    // determine t value to hit sphere through quadratic formula
-    vec3 o_c = r.origin() - center;
-    auto a = r.direction().length_squared(); 
-    auto half_b = dot(o_c, r.direction());
-    auto c = o_c.length_squared() - radius*radius;
-    auto discriminant = (half_b*half_b) - (a*c);
-    if (discriminant < 0) {
-        return -1.0;
-    } else {
-        return (-half_b - sqrt(discriminant)) / (2.0*a);
-    }
-}
 
-colour ray_colour(const ray& r) {
-    point3 sphere_center(0, 0, -1);
-    auto t = hit_sphere(sphere_center, 0.5, r);
-    if (t > 0) {
-        auto intersection = r.at(t); // point on surface
-        vec3 normal = unit_vector(intersection - sphere_center); // normal = centre to point
-        return colour(normal + vec3(1, 1, 1)) * 0.5; // normalize vector
+colour ray_colour(const ray& r, const hittable& world) {
+    hit_record rec;
+
+    if (world.hit(r, 0, 1000000, rec)) {
+        return 0.5 * (rec.normal + colour(1,1,1));
     }
 
+    // lerp for sky background
     auto unit_dir = unit_vector(r.direction());
     auto lerp_val = 0.5 * (unit_dir.y() + 1.0);
     auto start = colour(1.0, 1.0, 1.0);
@@ -59,6 +47,9 @@ int main() {
     auto viewport_upper_left = camera_center - vec3(0, 0, focal_length) - 0.5*viewport_u - 0.5*viewport_v;
     auto pixel00_loc = viewport_upper_left + 0.5*delta_u + 0.5*delta_v;
 
+    // world
+    sphere ball(point3(0, 0, -1), 0.5);
+
     // Render
     std::cout << "P3\n" << img_width << " " << img_height << "\n255" << std::endl;
 
@@ -69,7 +60,7 @@ int main() {
             auto ray_direction = pixel_center - camera_center; // ray direction from "eye" to viewport
             ray r(camera_center, ray_direction);
 
-            auto col = ray_colour(r);
+            auto col = ray_colour(r, ball);
 
             write_colour(std::cout, col);
         }
