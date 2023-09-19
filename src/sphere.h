@@ -30,7 +30,8 @@ class sphere : public hittable {
             // record the hit
             rec.t = root;
             rec.p = r.at(rec.t);
-            rec.normal = (rec.p - m_center) / m_radius;
+            vec3 outward_normal = (rec.p - m_center) / m_radius;
+            rec.set_face_normal(r, outward_normal);
 
             return true;
         }
